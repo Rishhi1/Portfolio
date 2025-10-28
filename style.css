@@ -1,0 +1,308 @@
+/* Shared styles across all pages */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* for iOS smooth scroll */
+    scroll-behavior: smooth;           /* for anchors */
+
+
+}
+
+/* Hero Section Animations */
+#hero {
+    background: #0B0F1A;
+}
+
+/* Button Hover Effects */
+.cta-button:hover {
+    background: #00B3FF !important;
+    box-shadow: 0 0 40px rgba(0, 179, 255, 0.6) !important;
+}
+
+.resume-button:hover {
+    background: rgba(56, 255, 248, 0.1) !important;
+    border-color: #00B3FF !important;
+    color: #00B3FF !important;
+    box-shadow: 0 0 20px rgba(0, 179, 255, 0.4) !important;
+}
+
+/* Skill Cards */
+.skill-card {
+    background: rgba(20, 25, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 255, 248, 0.3);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(15, 255, 224, 0.8);
+    box-shadow: 0 10px 40px rgba(56, 255, 248, 0.5), 0 0 20px rgba(15, 255, 224, 0.4);
+    background: rgba(56, 255, 248, 0.1);
+}
+
+.skill-card span {
+    font-weight: 600;
+    color: #E0E6F0;
+}
+
+/* Project Cards */
+.project-card {
+    background: rgba(20, 25, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 255, 248, 0.3);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(15, 255, 224, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 179, 255, 0.8);
+    box-shadow: 0 20px 50px rgba(56, 255, 248, 0.5), 0 0 30px rgba(15, 255, 224, 0.4);
+}
+
+.project-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #38FFF8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(56, 255, 248, 0.4);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.project-link:hover {
+    background: rgba(15, 255, 224, 0.2);
+    color: #0FFFE0;
+    border-color: rgba(0, 179, 255, 0.6);
+    box-shadow: 0 0 15px rgba(56, 255, 248, 0.5);
+}
+
+/* Social Links */
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(56, 255, 248, 0.4);
+    border-radius: 50%;
+    color: #38FFF8;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(15, 255, 224, 0.2);
+    transform: scale(1.1);
+    border-color: rgba(0, 179, 255, 0.8);
+    color: #0FFFE0;
+    box-shadow: 0 0 20px rgba(56, 255, 248, 0.6);
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card {
+        margin-bottom: 2rem;
+    }
+    
+    .skill-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B0F1A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #38FFF8, #0FFFE0);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0FFFE0, #00B3FF);
+}
+
+/* end of the css */
+/* === Smooth Scrolling Enhancements === */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* offset for fixed navbar if any */
+}
+
+/* Add smooth inertia-like scroll (modern browsers) */
+body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === Scroll Fade & Slide Animations === */
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add subtle parallax-like motion when scrolling */
+@keyframes smoothReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-fade {
+    animation: smoothReveal 1.2s ease forwards;
+}
+
+/* === Enhanced Scrollbar Design === */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B0F1A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #38FFF8, #0FFFE0);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0FFFE0, #00B3FF);
+}
+
+/* === Optional: Scroll Up Button Animation === */
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: rgba(56, 255, 248, 0.9);
+    color: #0B0F1A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 999;
+    border: 2px solid rgba(15, 255, 224, 0.5);
+    box-shadow: 0 0 20px rgba(56, 255, 248, 0.6);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    background: rgba(15, 255, 224, 0.9);
+    transform: scale(1.1);
+    color: #0B0F1A;
+    border-color: rgba(0, 179, 255, 0.8);
+    box-shadow: 0 0 30px rgba(15, 255, 224, 0.8);
+}
